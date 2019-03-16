@@ -19,8 +19,8 @@ class TodayViewController: UIViewController, NCWidgetProviding{
         todoList.delegate = self
         todoList.dataSource = self
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
-//        todoList.addGestureRecognizer(tap)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
+        todoList.addGestureRecognizer(tap)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,14 +37,14 @@ class TodayViewController: UIViewController, NCWidgetProviding{
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-//    @objc func tableTapped(tap:UITapGestureRecognizer) {
-//        let myAppUrl = NSURL(string: "com.kent.veryannoyingtodolist://open-from-widget")!
-//        extensionContext?.open(myAppUrl as URL, completionHandler: { (success) in
-//            if (!success) {
-//                // let the user know it failed
-//            }
-//        })
-//    }
+    @objc func tableTapped(tap:UITapGestureRecognizer) {
+        let myAppUrl = NSURL(string: "com.kent.veryannoyingtodolist://")!
+        extensionContext?.open(myAppUrl as URL, completionHandler: { (success) in
+            if (!success) {
+                // let the user know it failed
+            }
+        })
+    }
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .compact {
             self.preferredContentSize = maxSize
