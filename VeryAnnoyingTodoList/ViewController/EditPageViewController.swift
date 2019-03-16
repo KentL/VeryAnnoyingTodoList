@@ -38,10 +38,7 @@ class EditPageViewController: UIViewController {
         }
     }
     private func save(_ content:String) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = CoreDataStack.persistentContainer.viewContext
         if itemToEdit == nil {
             let entity = NSEntityDescription.entity(forEntityName: "TodoItem", in: managedContext)!
             itemToEdit = NSManagedObject(entity: entity, insertInto: managedContext)

@@ -45,11 +45,11 @@ class TodoListViewController: UIViewController {
     }
 
     @objc private func fetchItemsAndReload() {
-        let managedContext = appDelegate?.persistentContainer.viewContext
+        let managedContext = CoreDataStack.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TodoItem")
 
         do {
-            todoItems = try (managedContext?.fetch(fetchRequest))!
+            todoItems = try (managedContext.fetch(fetchRequest))
             todoList.reloadData()
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -86,8 +86,13 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             // delete item at indexPath
-            let managedContext = self.appDelegate?.persistentContainer.viewContext
-            managedContext?.delete(self.todoItems[indexPath.row])
+            let managedContext = CoreDataStack.persistentContainer.viewContext
+            managedContext.delete(self.todoItems[indexPath.row])
+            do {
+                try managedContext.save() // <- remember to put this :)
+            } catch {
+                print("Could not save.")
+            }
             self.todoItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.updateBadge()

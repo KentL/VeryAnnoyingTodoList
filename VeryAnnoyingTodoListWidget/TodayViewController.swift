@@ -24,6 +24,18 @@ class TodayViewController: UIViewController, NCWidgetProviding{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchItemsAndReload()
+    }
+    func fetchItemsAndReload() {
+        let managedContext = CoreDataStack.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TodoItem")
+
+        do {
+            todoItems = try (managedContext.fetch(fetchRequest))
+            todoList.reloadData()
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
 //    @objc func tableTapped(tap:UITapGestureRecognizer) {
 //        let myAppUrl = NSURL(string: "com.kent.veryannoyingtodolist://open-from-widget")!
@@ -60,7 +72,7 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let myAppUrl = NSURL(string: "com.kent.veryannoyingtodolist://open-from-widget")!
+        let myAppUrl = NSURL(string: "com.kent.veryannoyingtodolist://")!
         extensionContext?.open(myAppUrl as URL, completionHandler: { (success) in
             if (!success) {
                 // let the user know it failed

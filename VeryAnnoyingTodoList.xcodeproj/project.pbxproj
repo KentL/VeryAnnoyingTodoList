@@ -29,6 +29,8 @@
 		4BE148A6223C914500A1E60A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B0D4C49223B2CA50074F50B /* NotificationCenter.framework */; };
 		4BE148A8223C9FE300A1E60A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE148A7223C9FE300A1E60A /* Settings.swift */; };
 		4BE148A9223CBBEA00A1E60A /* TodoItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BE1489A223C45D800A1E60A /* TodoItem.xcdatamodeld */; };
+		4BE148AB223CDAD200A1E60A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE148AA223CDAD200A1E60A /* CoreDataStack.swift */; };
+		4BE148AC223CDAD200A1E60A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE148AA223CDAD200A1E60A /* CoreDataStack.swift */; };
 		665F3ED37AEC45DF802DA900 /* Pods_VeryAnnoyingTodoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95E7BC2E48DA5C8C6729CA1 /* Pods_VeryAnnoyingTodoList.framework */; };
 		6DF6837A80AD2AE3638FDCCB /* Pods_VeryAnnoyingTodoListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03934AEF39D6693CB82002D /* Pods_VeryAnnoyingTodoListUITests.framework */; };
 /* End PBXBuildFile section */
@@ -99,6 +101,9 @@
 		4BE148A1223C5EF900A1E60A /* NotificationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCode.swift; sourceTree = "<group>"; };
 		4BE148A3223C90FF00A1E60A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		4BE148A7223C9FE300A1E60A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		4BE148AA223CDAD200A1E60A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4BE148AD223D4AC500A1E60A /* VeryAnnoyingTodoList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VeryAnnoyingTodoList.entitlements; sourceTree = "<group>"; };
+		4BE148AE223D4B0000A1E60A /* VeryAnnoyingTodoListWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VeryAnnoyingTodoListWidget.entitlements; sourceTree = "<group>"; };
 		5606FE4253B1B2F8D0450F0D /* Pods-VeryAnnoyingTodoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeryAnnoyingTodoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VeryAnnoyingTodoList/Pods-VeryAnnoyingTodoList.debug.xcconfig"; sourceTree = "<group>"; };
 		5952125ADF82E958E3C8437F /* Pods-VeryAnnoyingTodoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeryAnnoyingTodoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-VeryAnnoyingTodoList/Pods-VeryAnnoyingTodoList.release.xcconfig"; sourceTree = "<group>"; };
 		D03934AEF39D6693CB82002D /* Pods_VeryAnnoyingTodoListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VeryAnnoyingTodoListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +180,7 @@
 		4B0D4C0E223ACD580074F50B /* VeryAnnoyingTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				4BE148AD223D4AC500A1E60A /* VeryAnnoyingTodoList.entitlements */,
 				4BE148A0223C5EE600A1E60A /* Notification */,
 				4BE1489D223C58C200A1E60A /* Helpers */,
 				4B0D4C3D223B11A50074F50B /* ViewController */,
@@ -183,6 +189,7 @@
 				4B0D4C16223ACD5B0074F50B /* Assets.xcassets */,
 				4B0D4C18223ACD5B0074F50B /* LaunchScreen.storyboard */,
 				4B0D4C1B223ACD5B0074F50B /* Info.plist */,
+				4BE148AA223CDAD200A1E60A /* CoreDataStack.swift */,
 			);
 			path = VeryAnnoyingTodoList;
 			sourceTree = "<group>";
@@ -218,6 +225,7 @@
 		4B0D4C4B223B2CA50074F50B /* VeryAnnoyingTodoListWidget */ = {
 			isa = PBXGroup;
 			children = (
+				4BE148AE223D4B0000A1E60A /* VeryAnnoyingTodoListWidget.entitlements */,
 				4B0D4C4C223B2CA50074F50B /* TodayViewController.swift */,
 				4B0D4C4E223B2CA50074F50B /* MainInterface.storyboard */,
 				4B0D4C51223B2CA50074F50B /* Info.plist */,
@@ -358,6 +366,11 @@
 				TargetAttributes = {
 					4B0D4C0B223ACD580074F50B = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4B0D4C1F223ACD5B0074F50B = {
 						CreatedOnToolsVersion = 10.1;
@@ -369,6 +382,11 @@
 					};
 					4B0D4C47223B2CA50074F50B = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -527,6 +545,7 @@
 				4B0D4C41223B14080074F50B /* EditPageViewController.swift in Sources */,
 				4B0D4C3F223B13C30074F50B /* TodoListViewController.swift in Sources */,
 				4BE148A8223C9FE300A1E60A /* Settings.swift in Sources */,
+				4BE148AB223CDAD200A1E60A /* CoreDataStack.swift in Sources */,
 				4BE1489C223C45D800A1E60A /* TodoItem.xcdatamodeld in Sources */,
 				4BE1489F223C58D900A1E60A /* GUIHelper.swift in Sources */,
 				4BE148A2223C5EF900A1E60A /* NotificationCode.swift in Sources */,
@@ -555,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE148AC223CDAD200A1E60A /* CoreDataStack.swift in Sources */,
 				4BE148A9223CBBEA00A1E60A /* TodoItem.xcdatamodeld in Sources */,
 				4B0D4C4D223B2CA50074F50B /* TodayViewController.swift in Sources */,
 			);
@@ -730,6 +750,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VeryAnnoyingTodoList/VeryAnnoyingTodoList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF86776D59;
 				INFOPLIST_FILE = VeryAnnoyingTodoList/Info.plist;
@@ -750,6 +771,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VeryAnnoyingTodoList/VeryAnnoyingTodoList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF86776D59;
 				INFOPLIST_FILE = VeryAnnoyingTodoList/Info.plist;
@@ -853,6 +875,7 @@
 		4B0D4C56223B2CA50074F50B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VeryAnnoyingTodoListWidget/VeryAnnoyingTodoListWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF86776D59;
 				INFOPLIST_FILE = VeryAnnoyingTodoListWidget/Info.plist;
@@ -872,6 +895,7 @@
 		4B0D4C57223B2CA50074F50B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VeryAnnoyingTodoListWidget/VeryAnnoyingTodoListWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF86776D59;
 				INFOPLIST_FILE = VeryAnnoyingTodoListWidget/Info.plist;
