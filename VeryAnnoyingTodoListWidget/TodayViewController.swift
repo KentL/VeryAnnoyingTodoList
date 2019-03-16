@@ -12,7 +12,7 @@ import CoreData
 
 class TodayViewController: UIViewController, NCWidgetProviding{
     @IBOutlet weak var todoList: UITableView!
-    var todoItems:[NSManagedObject] = []
+    var todoItems:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +22,7 @@ class TodayViewController: UIViewController, NCWidgetProviding{
         let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
         todoList.addGestureRecognizer(tap)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
         fetchItemsAndReload()
     }
     func fetchItemsAndReload() {
@@ -31,7 +30,13 @@ class TodayViewController: UIViewController, NCWidgetProviding{
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TodoItem")
 
         do {
-            todoItems = try (managedContext.fetch(fetchRequest))
+            let itemsFromDB = try (managedContext.fetch(fetchRequest))
+            todoItems.removeAll()
+            for item in itemsFromDB {
+                if let value = item.value(forKey: "content") as? String {
+                    todoItems.append(value)
+                }
+            }
             todoList.reloadData()
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -67,7 +72,7 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let todoItem = todoItems[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
-        cell.textLabel?.text = todoItem.value(forKeyPath: "content") as? String
+        cell.textLabel?.text = todoItem
         return cell
     }
 

@@ -66,10 +66,6 @@ class TodoListViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-    private func onItemChanged(_: Notification) {
-        fetchItemsAndReload()
-        updateBadge()
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchItemsAndReload()
