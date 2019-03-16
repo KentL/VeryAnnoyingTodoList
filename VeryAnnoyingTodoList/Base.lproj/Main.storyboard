@@ -238,6 +238,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="uS2-99-cOg" id="TVH-Rh-Fpt"/>
+                        <outlet property="textViewBottomConstraint" destination="004-o5-hHS" id="aDn-ta-3pP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zl1-7E-TXH" userLabel="First Responder" sceneMemberID="firstResponder"/>

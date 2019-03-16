@@ -19,7 +19,10 @@ class TodoListViewController: UIViewController {
     @IBOutlet weak var todoList: UITableView!
 
     @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
-        
+        openEditPageWithEmptyEntity()
+
+    }
+    private func openEditPageWithEmptyEntity() {
         editPageViewController?.itemToEdit = nil
 
         navigationController?.pushViewController(editPageViewController!, animated: true)
@@ -42,6 +45,14 @@ class TodoListViewController: UIViewController {
             application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         }
         application.registerForRemoteNotifications()
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tableDoubleTapped))
+        tap.numberOfTapsRequired = 2
+        todoList.addGestureRecognizer(tap)
+    }
+
+    @objc func tableDoubleTapped(tap:UITapGestureRecognizer) {
+        openEditPageWithEmptyEntity()
     }
 
     @objc private func fetchItemsAndReload() {
