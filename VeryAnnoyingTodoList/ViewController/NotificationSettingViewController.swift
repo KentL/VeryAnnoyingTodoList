@@ -12,15 +12,15 @@ import UserNotifications
 class NotificationSettingViewController: UITableViewController {
 
     var addNotificationViewController: AddNotificationViewController?
-    var dates = [Date]()
+    var schedules = [NotificationSchedule]()
     @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
         self.present(addNotificationViewController!, animated: true)
     }
     private func reloadTableView() {
-        dates = Settings.notificationSchedules()
-        dates.sort { (date1, date2) -> Bool in
-            let str1 = hourMinuteString(date1)
-            let str2 = hourMinuteString(date2)
+        schedules = Settings.notificationSchedules()
+        schedules.sort { (schedule1, schedule2) -> Bool in
+            let str1 = DateHelper.hourMinuteString(schedule1.time)
+            let str2 = DateHelper.hourMinuteString(schedule2.time)
             return str1 > str2
         }
         self.tableView.reloadData()
@@ -36,13 +36,13 @@ class NotificationSettingViewController: UITableViewController {
     @objc func tryAddNewSchedules(_ notification: Notification) {
         if let newDate = notification.userInfo?[UserInfoKey.pickedDate] as? Date {
             var scheduledDates = Settings.notificationSchedules()
-            if !scheduledDates.contains(where: { (scheduledDate) -> Bool in
-                return sameHourAndMinute(scheduledDate,newDate)
+            if !scheduledDates.contains(where: { (schedules) -> Bool in
+                return sameHourAndMinute(schedules.time,newDate)
             }) {
                 // if it's never set, set it and reschedule notification
-                scheduledDates.append(newDate)
+                scheduledDates.append(NotificationSchedule(time: newDate, enabled: true))
                 Settings.setNotificationSchedules(scheduledDates)
-                addNotification(newDate)
+                NotificationController.scheduleNotificationOnTime(newDate)
                 reloadTableView()
             }
         }
@@ -51,20 +51,28 @@ class NotificationSettingViewController: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dates.count
+        return schedules.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleTableViewCell", for: indexPath)
-        let date = dates[indexPath.row]
-        cell.textLabel?.text = hourMinuteString(date)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleTableViewCell", for: indexPath) as? ScheduleTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ScheduleTableViewCell.")
+        }
+        let date = schedules[indexPath.row].time
+        cell.timeLabel.text = toStringWithAMPM(date)
+        cell.scheduleSwitch.isOn = schedules[indexPath.row].enabled
+        cell.time = date
         return cell
     }
-    private func hourMinuteString(_ date: Date) -> String {
-        let hour = Calendar.current.component(.hour, from: date)
-        let minute = String(format: "%02d", Calendar.current.component(.minute, from: date))
-        return  "\(hour):\(minute)"
+    private func toStringWithAMPM(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+
+        return formatter.string(from: date)
     }
+    
     private func sameHourAndMinute(_ date1: Date, _ date2: Date) -> Bool {
         let hour1 = Calendar.current.component(.hour, from: date1)
         let hour2 = Calendar.current.component(.hour, from: date2)
@@ -72,31 +80,14 @@ class NotificationSettingViewController: UITableViewController {
         let minute2 = Calendar.current.component(.minute, from: date2)
         return hour1 == hour2 && minute1 == minute2
     }
-    private func addNotification(_ date: Date) {
-        let content = UNMutableNotificationContent()
-        content.title = NSString.localizedUserNotificationString(forKey: "Todo Reminder", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "Don't forget you have things to do!", arguments: nil)
-        content.sound = UNNotificationSound.default
-
-        let triggerDaily = Calendar.current.dateComponents([.hour,.minute,], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
-
-        let request = UNNotificationRequest(identifier: "TodoReminder\(hourMinuteString(date))", content: content, trigger: trigger)
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error : Error?) in
-            if let theError = error {
-                print(theError.localizedDescription)
-            }
-        }
-    }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let dateToDelete = self.dates[indexPath.row]
+        let dateToDelete = self.schedules[indexPath.row].time
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["TodoReminder\(self.hourMinuteString(dateToDelete))"])
+            NotificationController.cancelNotificationOnTime(dateToDelete)
             let scheduledDates = Settings.notificationSchedules()
             let newScheduleDates = scheduledDates.filter({ (date) -> Bool in
-                return !self.sameHourAndMinute(date, dateToDelete)
+                return !self.sameHourAndMinute(date.time, dateToDelete)
             })
             Settings.setNotificationSchedules(newScheduleDates)
             self.reloadTableView()

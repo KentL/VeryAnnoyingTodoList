@@ -15,16 +15,28 @@ class Settings {
         UserDefaults.standard.set(value, forKey: "badgeEnabled")
     }
 
-    static func notificationSchedules() -> [Date] { return UserDefaults.standard.array(forKey: "notificationSchedules") as? [Date] ?? [Date]()
+    static func notificationSchedules() -> [NotificationSchedule] {
+        do {
+            if let data = UserDefaults.standard.data(forKey: "notificationSchedules") {
+                let notificationSchedules = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [NotificationSchedule]
+                return notificationSchedules
+            }
+        } catch {
+            print("Exception when decoding: \(error) ")
+        }
+        return [NotificationSchedule]()
+
     }
 
-    static func setNotificationSchedules(_ value: [Date]) {
-        UserDefaults.standard.set(value, forKey: "notificationSchedules")
-    }
+    static func setNotificationSchedules(_ value: [NotificationSchedule]) {
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false)
+            UserDefaults.standard.set(encodedData, forKey: "notificationSchedules")
+        } catch  {
+            print("hmmm, some thing wrong when encoding ")
+        }
 
-    static func alarmSchedules() -> [Date] {return UserDefaults.standard.array(forKey: "notificationSchedules") as? [Date] ?? [Date]() }
 
-    static func setAlarmSchedules(_ value: Bool) {
-        UserDefaults.standard.set(value, forKey: "notificationSchedules")
+
     }
 }

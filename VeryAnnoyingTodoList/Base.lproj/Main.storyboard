@@ -266,13 +266,39 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleTableViewCell" id="sVs-Ce-60S">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleTableViewCell" id="sVs-Ce-60S" customClass="ScheduleTableViewCell" customModule="VeryAnnoyingTodoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sVs-Ce-60S" id="WcX-S3-kkz">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8C-Rb-Vhn">
+                                            <rect key="frame" x="16" y="11" width="71" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v72-0O-eQ6">
+                                            <rect key="frame" x="310" y="6" width="49" height="31"/>
+                                            <connections>
+                                                <action selector="switchChanged:" destination="sVs-Ce-60S" eventType="valueChanged" id="FL7-1P-27C"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="b8C-Rb-Vhn" firstAttribute="leading" secondItem="WcX-S3-kkz" secondAttribute="leading" constant="16" id="WRn-8U-I49"/>
+                                        <constraint firstAttribute="trailing" secondItem="v72-0O-eQ6" secondAttribute="trailing" constant="18" id="a66-G8-Zi4"/>
+                                        <constraint firstItem="b8C-Rb-Vhn" firstAttribute="top" secondItem="WcX-S3-kkz" secondAttribute="top" constant="11" id="gw0-X6-uXf"/>
+                                        <constraint firstAttribute="bottom" secondItem="v72-0O-eQ6" secondAttribute="bottom" constant="6.5" id="kPy-Sa-83Y"/>
+                                        <constraint firstAttribute="bottom" secondItem="b8C-Rb-Vhn" secondAttribute="bottom" constant="11.5" id="oNh-RY-Gm6"/>
+                                        <constraint firstItem="v72-0O-eQ6" firstAttribute="top" secondItem="WcX-S3-kkz" secondAttribute="top" constant="6" id="wF0-iu-ows"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="scheduleSwitch" destination="v72-0O-eQ6" id="byF-Iw-odU"/>
+                                    <outlet property="timeLabel" destination="b8C-Rb-Vhn" id="vbG-rm-B4h"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -293,7 +319,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ie7-AJ-Iyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4193" y="466"/>
+            <point key="canvasLocation" x="4192.8000000000002" y="465.51724137931041"/>
         </scene>
         <!--Add Notification View Controller-->
         <scene sceneID="zpb-5B-bwq">
