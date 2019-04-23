@@ -15,21 +15,16 @@ class Settings {
         UserDefaults.standard.set(value, forKey: "badgeEnabled")
     }
 
-    static func notificationEnabled() -> Bool { return UserDefaults.standard.bool(forKey: "notificationEnabled") }
-
-    static func setNotificationEnabled(_ value: Bool) {
-        UserDefaults.standard.set(value, forKey: "notificationEnabled")
+    static func notificationSchedules() -> [Date] { return UserDefaults.standard.array(forKey: "notificationSchedules") as? [Date] ?? [Date]()
     }
 
-    static func alarmEnabled() -> Bool {return UserDefaults.standard.bool(forKey: "alarmEnabled") }
-
-    static func setAlarmEnabled(_ value: Bool) {
-        UserDefaults.standard.set(value, forKey: "alarmEnabled")
+    static func setNotificationSchedules(_ value: [Date]) {
+        UserDefaults.standard.set(value, forKey: "notificationSchedules")
     }
 
-    static func quietTimeEnabled() -> Bool { return UserDefaults.standard.bool(forKey: "quietTimeEnabled") }
-    
-    static func setQuietTimeEnabled(_ value: Bool) {
-        UserDefaults.standard.set(value, forKey: "quietTimeEnabled")
+    static func alarmSchedules() -> [Date] {return UserDefaults.standard.array(forKey: "notificationSchedules") as? [Date] ?? [Date]() }
+
+    static func setAlarmSchedules(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: "notificationSchedules")
     }
 }
