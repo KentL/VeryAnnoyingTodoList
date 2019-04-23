@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SettingsViewController: UITableViewController {
 
@@ -17,6 +18,16 @@ class SettingsViewController: UITableViewController {
         Settings.setBadgeEnabled(sender.isOn)
         if !sender.isOn {
             UIApplication.shared.applicationIconBadgeNumber = 0
+        } else {
+            let managedContext = CoreDataStack.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TodoItem")
+
+            do {
+                let todoItems = try (managedContext.fetch(fetchRequest))
+                UIApplication.shared.applicationIconBadgeNumber = todoItems.count
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
         }
     }
 

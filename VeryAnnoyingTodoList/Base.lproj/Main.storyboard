@@ -81,7 +81,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="68u-hp-Wbl">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="68u-hp-Wbl">
                                                     <rect key="frame" x="306" y="6.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="showBadgeSwitchChanged:" destination="Pyz-gh-Yue" eventType="valueChanged" id="q1f-6A-X9y"/>
