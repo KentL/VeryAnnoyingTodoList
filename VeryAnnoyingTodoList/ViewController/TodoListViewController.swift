@@ -31,6 +31,8 @@ class TodoListViewController: UIViewController {
         super.viewDidLoad()
         todoList.dataSource = self
         todoList.delegate = self
+        todoList.tableFooterView = UIView()//Hide separator between empty cells
+        
         NotificationCenter.default.addObserver(self, selector: #selector(fetchItemsAndReload), name: .NewTodoItemSaved, object: nil)
 
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)

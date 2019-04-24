@@ -31,6 +31,8 @@ class NotificationSettingViewController: UITableViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         addNotificationViewController = storyBoard.instantiateViewController(withIdentifier: "AddNotification") as? AddNotificationViewController
         NotificationCenter.default.addObserver(self, selector: #selector(tryAddNewSchedules(_:)), name: .ScheduleDatePicked, object: nil)
+
+        self.tableView.tableFooterView = UIView()//Hide separator between empty cells
         reloadTableView()
     }
     @objc func tryAddNewSchedules(_ notification: Notification) {

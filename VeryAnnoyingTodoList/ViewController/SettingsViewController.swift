@@ -37,5 +37,6 @@ class SettingsViewController: UITableViewController {
 
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         notificationSettingViewController = storyBoard.instantiateViewController(withIdentifier: "NotificationSetting") as? NotificationSettingViewController
+        self.tableView.tableFooterView = UIView()//Hide separator between empty cells
     }
 }
