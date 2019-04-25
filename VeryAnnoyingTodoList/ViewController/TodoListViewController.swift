@@ -51,6 +51,8 @@ class TodoListViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tableDoubleTapped))
         tap.numberOfTapsRequired = 2
         todoList.addGestureRecognizer(tap)
+
+        setUpTheming()
     }
 
     @objc func tableDoubleTapped(tap:UITapGestureRecognizer) {
@@ -114,5 +116,17 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
         if Settings.badgeEnabled() {
             UIApplication.shared.applicationIconBadgeNumber = self.todoItems.count
         }
+    }
+}
+
+extension TodoListViewController: Themed {
+    func applyTheme(_ theme: AppTheme) {
+
+        todoList.backgroundColor = theme.backgroundColor
+        todoList.reloadData()
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.superview?.backgroundColor = themeProvider.currentTheme.backgroundColor
+       cell.textLabel?.textColor = themeProvider.currentTheme.textColor
     }
 }

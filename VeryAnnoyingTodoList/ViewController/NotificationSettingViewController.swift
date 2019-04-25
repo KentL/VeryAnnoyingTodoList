@@ -14,7 +14,7 @@ class NotificationSettingViewController: UITableViewController {
     var addNotificationViewController: AddNotificationViewController?
     var schedules = [NotificationSchedule]()
     @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
-        self.present(addNotificationViewController!, animated: true)
+        navigationController?.pushViewController(addNotificationViewController!, animated: true)
     }
     private func reloadTableView() {
         schedules = Settings.notificationSchedules()
@@ -34,6 +34,7 @@ class NotificationSettingViewController: UITableViewController {
 
         self.tableView.tableFooterView = UIView()//Hide separator between empty cells
         reloadTableView()
+        setUpTheming()
     }
     @objc func tryAddNewSchedules(_ notification: Notification) {
         if let newDate = notification.userInfo?[UserInfoKey.pickedDate] as? Date {
@@ -100,4 +101,23 @@ class NotificationSettingViewController: UITableViewController {
     }
 
     
+}
+
+extension NotificationSettingViewController: Themed {
+    func applyTheme(_ theme: AppTheme) {
+
+        self.tableView.backgroundColor = theme.backgroundColor
+        self.tableView.reloadData()
+    }
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = themeProvider.currentTheme.backgroundColor
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = themeProvider.currentTheme.textColor
+    }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let scheduleCell = cell as? ScheduleTableViewCell {
+            scheduleCell.contentView.superview?.backgroundColor = themeProvider.currentTheme.backgroundColor
+            scheduleCell.timeLabel.textColor = themeProvider.currentTheme.textColor
+        }
+    }
 }

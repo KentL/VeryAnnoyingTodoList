@@ -11,24 +11,27 @@ import UIKit
 class AddNotificationViewController: UIViewController {
 
     @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var navigationBar: UINavigationBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpTheming()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         timePicker.setDate(Date(), animated: true)
-    }
-    
-    @IBAction func cancelClicked(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func saveClicked(_ sender: UIBarButtonItem) {
         let pickedTime = timePicker.date
         NotificationCenter.default.post(name: .ScheduleDatePicked, object: self, userInfo: [UserInfoKey.pickedDate:pickedTime])
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AddNotificationViewController: Themed {
+    func applyTheme(_ theme: AppTheme) {
+        timePicker.backgroundColor = theme.backgroundColor
+        timePicker.setValue(theme.textColor, forKeyPath: "textColor")
     }
 }

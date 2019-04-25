@@ -10,9 +10,13 @@ import UIKit
 import CoreData
 
 class SettingsViewController: UITableViewController {
+    @IBOutlet weak var showBadgeSwitch: UISwitch!
 
-    @IBOutlet weak var showBadgetCell: UITableViewCell!
+    @IBOutlet weak var darkModeLabel: UILabel!
+    @IBOutlet weak var showBadgeLabel: UILabel!
+    @IBOutlet weak var notificationSettingLabel: UILabel!
 
+    @IBOutlet weak var darkModeSwitch: UISwitch!
     var notificationSettingViewController: NotificationSettingViewController?
     @IBAction func showBadgeSwitchChanged(_ sender: UISwitch) {
         Settings.setBadgeEnabled(sender.isOn)
@@ -31,6 +35,14 @@ class SettingsViewController: UITableViewController {
         }
     }
 
+    @IBAction func darkModeToggled(_ sender: UISwitch) {
+        Settings.setDarkModeEnabled(sender.isOn)
+        if sender.isOn {
+            themeProvider.useTheme(.dark)
+        } else {
+            themeProvider.useTheme(.light)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,5 +50,28 @@ class SettingsViewController: UITableViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         notificationSettingViewController = storyBoard.instantiateViewController(withIdentifier: "NotificationSetting") as? NotificationSettingViewController
         self.tableView.tableFooterView = UIView()//Hide separator between empty cells
+        self.showBadgeSwitch.isOn = Settings.badgeEnabled()
+        self.darkModeSwitch.isOn = Settings.darkModeEnabled()
+
+        setUpTheming()
+    }
+}
+
+extension SettingsViewController: Themed {
+    func applyTheme(_ theme: AppTheme) {
+
+        self.tableView.backgroundColor = theme.backgroundColor
+        tableView.reloadData()
+    }
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = themeProvider.currentTheme.backgroundColor
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = themeProvider.currentTheme.textColor
+    }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.contentView.superview?.backgroundColor = themeProvider.currentTheme.backgroundColor
+        darkModeLabel.textColor = themeProvider.currentTheme.textColor
+        showBadgeLabel.textColor = themeProvider.currentTheme.textColor
+        notificationSettingLabel.textColor = themeProvider.currentTheme.textColor
     }
 }

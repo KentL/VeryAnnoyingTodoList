@@ -68,8 +68,36 @@
                         <sections>
                             <tableViewSection headerTitle="General" id="hOa-CU-D1y">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IdB-pi-n50">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ah8-jg-Fwg">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ah8-jg-Fwg" id="yOy-Sh-UmN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuI-q7-Qs1">
+                                                    <rect key="frame" x="14" y="11.5" width="84" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7AU-Nf-Th4">
+                                                    <rect key="frame" x="306" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="darkModeToggled:" destination="Pyz-gh-Yue" eventType="valueChanged" id="cZQ-UO-tst"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VuI-q7-Qs1" firstAttribute="centerY" secondItem="yOy-Sh-UmN" secondAttribute="centerY" id="G2V-Cm-rch"/>
+                                                <constraint firstAttribute="trailing" secondItem="7AU-Nf-Th4" secondAttribute="trailing" constant="20" id="L9N-X4-Aw8"/>
+                                                <constraint firstItem="7AU-Nf-Th4" firstAttribute="centerY" secondItem="yOy-Sh-UmN" secondAttribute="centerY" id="toa-1E-uac"/>
+                                                <constraint firstItem="VuI-q7-Qs1" firstAttribute="leading" secondItem="yOy-Sh-UmN" secondAttribute="leading" constant="14" id="vk7-nd-Xmk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IdB-pi-n50">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IdB-pi-n50" id="ZGI-1E-pf9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -97,7 +125,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Y5w-jv-LrX">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y5w-jv-LrX" id="FfA-lB-3sK">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -129,13 +157,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="15u-Pl-Ovg"/>
                     <connections>
-                        <outlet property="showBadgetCell" destination="IdB-pi-n50" id="QJm-38-fZo"/>
+                        <outlet property="darkModeLabel" destination="VuI-q7-Qs1" id="hmp-lu-7K6"/>
+                        <outlet property="darkModeSwitch" destination="7AU-Nf-Th4" id="TDB-CU-bfP"/>
+                        <outlet property="notificationSettingLabel" destination="c7U-Ad-whp" id="0fM-vl-TSD"/>
+                        <outlet property="showBadgeLabel" destination="lrD-jd-TVJ" id="kA5-jM-XgL"/>
+                        <outlet property="showBadgeSwitch" destination="68u-hp-Wbl" id="JVn-xM-tIf"/>
                         <outlet property="tableView" destination="Z74-9r-Fuy" id="zqs-Wa-0U3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvQ-q9-Kh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3072.8000000000002" y="465.51724137931041"/>
+            <point key="canvasLocation" x="2094" y="466"/>
         </scene>
         <!--Edit-->
         <scene sceneID="epW-OG-L1R">
@@ -182,10 +214,10 @@
             </objects>
             <point key="canvasLocation" x="4148" y="-527"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--App Tab Bar Controller-->
         <scene sceneID="Xzi-z7-35f">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="RmK-Am-bny" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="RmK-Am-bny" customClass="AppTabBarController" customModule="VeryAnnoyingTodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fyJ-Z1-xj5">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -204,7 +236,7 @@
         <!--Todo-->
         <scene sceneID="6Pr-aF-FpJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KDU-n7-kUL" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KDU-n7-kUL" customClass="AppNavigationController" customModule="VeryAnnoyingTodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Todo" image="list" selectedImage="list" id="p2z-WK-m1S"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z7n-zi-Cnl">
@@ -220,10 +252,10 @@
             </objects>
             <point key="canvasLocation" x="1196" y="-528"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--App Navigation Controller-->
         <scene sceneID="1XO-BU-xGo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tMh-v6-w1n" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tMh-v6-w1n" customClass="AppNavigationController" customModule="VeryAnnoyingTodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C1C-6u-SOv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -241,7 +273,7 @@
         <!--Settings-->
         <scene sceneID="t6d-7D-IAg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dZq-u8-yMl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dZq-u8-yMl" customClass="AppNavigationController" customModule="VeryAnnoyingTodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="nvb-4V-MTU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sx1-14-y3S">
@@ -255,7 +287,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gg-JM-xnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2133.5999999999999" y="465.51724137931041"/>
+            <point key="canvasLocation" x="1196" y="466"/>
         </scene>
         <!--Notification Schedules-->
         <scene sceneID="bSS-0n-KRN">
@@ -318,9 +350,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ie7-AJ-Iyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4192.8000000000002" y="465.51724137931041"/>
+            <point key="canvasLocation" x="3092" y="466"/>
         </scene>
-        <!--Add Notification View Controller-->
+        <!--App Navigation Controller-->
+        <scene sceneID="J4D-Wc-Thp">
+            <objects>
+                <navigationController id="XmI-oW-Yth" customClass="AppNavigationController" customModule="VeryAnnoyingTodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SW7-Pn-oZU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lwY-BA-Zif" kind="relationship" relationship="rootViewController" id="c7O-8R-AZz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJD-sG-7aD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="428"/>
+        </scene>
+        <!--Pick Time-->
         <scene sceneID="zpb-5B-bwq">
             <objects>
                 <viewController storyboardIdentifier="AddNotification" id="lwY-BA-Zif" customClass="AddNotificationViewController" customModule="VeryAnnoyingTodoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -328,23 +376,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2r5-ul-0FY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Add Notification" id="jZO-5u-2Hh">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pBv-tg-XnS">
-                                            <connections>
-                                                <action selector="cancelClicked:" destination="lwY-BA-Zif" id="6ZM-EY-sfT"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="CSm-8u-XUv">
-                                            <connections>
-                                                <action selector="saveClicked:" destination="lwY-BA-Zif" id="oZd-kN-rPN"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xTn-8V-2vB">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <date key="date" timeIntervalSinceReferenceDate="577650902.87301803">
@@ -354,23 +385,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zJ2-J7-AL5" firstAttribute="trailing" secondItem="2r5-ul-0FY" secondAttribute="trailing" id="0BT-iN-ejx"/>
                             <constraint firstItem="zJ2-J7-AL5" firstAttribute="trailing" secondItem="xTn-8V-2vB" secondAttribute="trailing" id="Xyf-Nl-qaI"/>
                             <constraint firstItem="zJ2-J7-AL5" firstAttribute="bottom" secondItem="xTn-8V-2vB" secondAttribute="bottom" id="Yc7-MS-W3s"/>
-                            <constraint firstItem="2r5-ul-0FY" firstAttribute="leading" secondItem="zJ2-J7-AL5" secondAttribute="leading" id="p6g-tc-Wpk"/>
+                            <constraint firstItem="xTn-8V-2vB" firstAttribute="top" secondItem="zJ2-J7-AL5" secondAttribute="top" id="erT-Yl-k8a"/>
                             <constraint firstItem="zJ2-J7-AL5" firstAttribute="leading" secondItem="xTn-8V-2vB" secondAttribute="leading" id="pge-wU-I3r"/>
-                            <constraint firstItem="xTn-8V-2vB" firstAttribute="top" secondItem="2r5-ul-0FY" secondAttribute="bottom" id="zTk-Kw-Yb3"/>
-                            <constraint firstItem="2r5-ul-0FY" firstAttribute="top" secondItem="zJ2-J7-AL5" secondAttribute="top" id="zw1-ab-Cfd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zJ2-J7-AL5"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Pick Time" id="lUA-gn-pbx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="CSm-8u-XUv">
+                            <connections>
+                                <action selector="saveClicked:" destination="lwY-BA-Zif" id="oZd-kN-rPN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="timePicker" destination="xTn-8V-2vB" id="svQ-pp-GLB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yng-o7-ken" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5253.6000000000004" y="465.51724137931041"/>
+            <point key="canvasLocation" x="4783" y="428"/>
         </scene>
     </scenes>
     <resources>

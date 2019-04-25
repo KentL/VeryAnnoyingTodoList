@@ -14,6 +14,11 @@ class Settings {
     static func setBadgeEnabled(_ value: Bool) {
         UserDefaults.standard.set(value, forKey: "badgeEnabled")
     }
+    static func darkModeEnabled() -> Bool { return UserDefaults.standard.bool(forKey: "darkModeEnabled") }
+
+    static func setDarkModeEnabled(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: "darkModeEnabled")
+    }
 
     static func notificationSchedules() -> [NotificationSchedule] {
         do {

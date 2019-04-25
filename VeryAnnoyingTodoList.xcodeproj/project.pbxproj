@@ -37,6 +37,13 @@
 		4BE148A9223CBBEA00A1E60A /* TodoItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BE1489A223C45D800A1E60A /* TodoItem.xcdatamodeld */; };
 		4BE148AB223CDAD200A1E60A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE148AA223CDAD200A1E60A /* CoreDataStack.swift */; };
 		4BE148AC223CDAD200A1E60A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE148AA223CDAD200A1E60A /* CoreDataStack.swift */; };
+		4BE47F6D22721DF40061DE71 /* SubscribableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE47F6A22721DF40061DE71 /* SubscribableValue.swift */; };
+		4BE47F6F22721DF40061DE71 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE47F6C22721DF40061DE71 /* Weak.swift */; };
+		4BE47F7322721E340061DE71 /* Theming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE47F7022721E330061DE71 /* Theming.swift */; };
+		4BE47F7422721E340061DE71 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE47F7122721E330061DE71 /* AppTheme.swift */; };
+		4BE47F7522721E340061DE71 /* AppThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE47F7222721E340061DE71 /* AppThemeProvider.swift */; };
+		4BE47F7722722FDF0061DE71 /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE47F7622722FDF0061DE71 /* AppTabBarController.swift */; };
+		4BE47F79227230AF0061DE71 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE47F78227230AF0061DE71 /* AppNavigationController.swift */; };
 		665F3ED37AEC45DF802DA900 /* Pods_VeryAnnoyingTodoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95E7BC2E48DA5C8C6729CA1 /* Pods_VeryAnnoyingTodoList.framework */; };
 		6DF6837A80AD2AE3638FDCCB /* Pods_VeryAnnoyingTodoListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03934AEF39D6693CB82002D /* Pods_VeryAnnoyingTodoListUITests.framework */; };
 /* End PBXBuildFile section */
@@ -116,6 +123,13 @@
 		4BE148AA223CDAD200A1E60A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4BE148AD223D4AC500A1E60A /* VeryAnnoyingTodoList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VeryAnnoyingTodoList.entitlements; sourceTree = "<group>"; };
 		4BE148AE223D4B0000A1E60A /* VeryAnnoyingTodoListWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VeryAnnoyingTodoListWidget.entitlements; sourceTree = "<group>"; };
+		4BE47F6A22721DF40061DE71 /* SubscribableValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribableValue.swift; sourceTree = "<group>"; };
+		4BE47F6C22721DF40061DE71 /* Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
+		4BE47F7022721E330061DE71 /* Theming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theming.swift; sourceTree = "<group>"; };
+		4BE47F7122721E330061DE71 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		4BE47F7222721E340061DE71 /* AppThemeProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppThemeProvider.swift; sourceTree = "<group>"; };
+		4BE47F7622722FDF0061DE71 /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
+		4BE47F78227230AF0061DE71 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		5606FE4253B1B2F8D0450F0D /* Pods-VeryAnnoyingTodoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeryAnnoyingTodoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VeryAnnoyingTodoList/Pods-VeryAnnoyingTodoList.debug.xcconfig"; sourceTree = "<group>"; };
 		5952125ADF82E958E3C8437F /* Pods-VeryAnnoyingTodoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VeryAnnoyingTodoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-VeryAnnoyingTodoList/Pods-VeryAnnoyingTodoList.release.xcconfig"; sourceTree = "<group>"; };
 		D03934AEF39D6693CB82002D /* Pods_VeryAnnoyingTodoListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VeryAnnoyingTodoListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +206,7 @@
 		4B0D4C0E223ACD580074F50B /* VeryAnnoyingTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				4BE47F6722721D870061DE71 /* NightMode */,
 				4B8FF922226ED28400B51C12 /* Model */,
 				4BE148AD223D4AC500A1E60A /* VeryAnnoyingTodoList.entitlements */,
 				4BE148A0223C5EE600A1E60A /* Notification */,
@@ -234,6 +249,8 @@
 				4B8FF91A226E3C3000B51C12 /* NotificationSettingViewController.swift */,
 				4B8FF91E226E41BB00B51C12 /* AddNotificationViewController.swift */,
 				4B8FF920226EBE9000B51C12 /* ScheduleTableViewCell.swift */,
+				4BE47F7622722FDF0061DE71 /* AppTabBarController.swift */,
+				4BE47F78227230AF0061DE71 /* AppNavigationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -274,6 +291,34 @@
 				4B8FF925226EE2C200B51C12 /* NotificationController.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		4BE47F6722721D870061DE71 /* NightMode */ = {
+			isa = PBXGroup;
+			children = (
+				4BE47F6922721DBD0061DE71 /* Helpers */,
+				4BE47F6822721D9C0061DE71 /* Theming */,
+			);
+			path = NightMode;
+			sourceTree = "<group>";
+		};
+		4BE47F6822721D9C0061DE71 /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				4BE47F7122721E330061DE71 /* AppTheme.swift */,
+				4BE47F7222721E340061DE71 /* AppThemeProvider.swift */,
+				4BE47F7022721E330061DE71 /* Theming.swift */,
+			);
+			path = Theming;
+			sourceTree = "<group>";
+		};
+		4BE47F6922721DBD0061DE71 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4BE47F6A22721DF40061DE71 /* SubscribableValue.swift */,
+				4BE47F6C22721DF40061DE71 /* Weak.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		918061453B5771761BF1A513 /* Pods */ = {
@@ -568,12 +613,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE47F7522721E340061DE71 /* AppThemeProvider.swift in Sources */,
+				4BE47F7722722FDF0061DE71 /* AppTabBarController.swift in Sources */,
+				4BE47F7322721E340061DE71 /* Theming.swift in Sources */,
+				4BE47F6D22721DF40061DE71 /* SubscribableValue.swift in Sources */,
 				4B8FF928226EE45600B51C12 /* DateHelper.swift in Sources */,
 				4B0D4C41223B14080074F50B /* EditPageViewController.swift in Sources */,
 				4B0D4C3F223B13C30074F50B /* TodoListViewController.swift in Sources */,
+				4BE47F79227230AF0061DE71 /* AppNavigationController.swift in Sources */,
 				4B8FF921226EBE9000B51C12 /* ScheduleTableViewCell.swift in Sources */,
+				4BE47F6F22721DF40061DE71 /* Weak.swift in Sources */,
 				4BE148A8223C9FE300A1E60A /* Settings.swift in Sources */,
 				4BE148AB223CDAD200A1E60A /* CoreDataStack.swift in Sources */,
+				4BE47F7422721E340061DE71 /* AppTheme.swift in Sources */,
 				4BE1489C223C45D800A1E60A /* TodoItem.xcdatamodeld in Sources */,
 				4BE1489F223C58D900A1E60A /* GUIHelper.swift in Sources */,
 				4BE148A2223C5EF900A1E60A /* NotificationCode.swift in Sources */,

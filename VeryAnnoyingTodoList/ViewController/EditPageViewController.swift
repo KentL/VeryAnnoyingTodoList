@@ -61,6 +61,7 @@ class EditPageViewController: UIViewController {
                                                selector: #selector(self.keyboardNotification(notification:)),
                                                name: UIResponder.keyboardWillChangeFrameNotification,
                                                object: nil)
+        setUpTheming()
     }
 
 
@@ -117,5 +118,12 @@ class EditPageViewController: UIViewController {
     private func cleanUp() {
         itemToEdit = nil
         contentView.text = ""
+    }
+}
+
+extension EditPageViewController: Themed {
+    func applyTheme(_ theme: AppTheme) {
+        contentView.backgroundColor = theme.backgroundColor
+        contentView.textColor = theme.textColor
     }
 }
