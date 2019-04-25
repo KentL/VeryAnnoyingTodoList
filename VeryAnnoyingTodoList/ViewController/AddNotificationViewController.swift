@@ -11,7 +11,6 @@ import UIKit
 class AddNotificationViewController: UIViewController {
 
     @IBOutlet weak var timePicker: UIDatePicker!
-    @IBOutlet weak var navigationBar: UINavigationBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +24,7 @@ class AddNotificationViewController: UIViewController {
     @IBAction func saveClicked(_ sender: UIBarButtonItem) {
         let pickedTime = timePicker.date
         NotificationCenter.default.post(name: .ScheduleDatePicked, object: self, userInfo: [UserInfoKey.pickedDate:pickedTime])
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }
 
