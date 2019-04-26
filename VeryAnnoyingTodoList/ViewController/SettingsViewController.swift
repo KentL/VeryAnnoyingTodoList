@@ -17,7 +17,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var notificationSettingLabel: UILabel!
 
     @IBOutlet weak var darkModeSwitch: UISwitch!
-    var notificationSettingViewController: NotificationSettingViewController?
+    var notificationSettingViewController: NotificationScheduleViewController?
     @IBAction func showBadgeSwitchChanged(_ sender: UISwitch) {
         Settings.setBadgeEnabled(sender.isOn)
         if !sender.isOn {
@@ -48,7 +48,7 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
 
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        notificationSettingViewController = storyBoard.instantiateViewController(withIdentifier: "NotificationSetting") as? NotificationSettingViewController
+        notificationSettingViewController = storyBoard.instantiateViewController(withIdentifier: "NotificationSetting") as? NotificationScheduleViewController
         self.tableView.tableFooterView = UIView()//Hide separator between empty cells
         self.showBadgeSwitch.isOn = Settings.badgeEnabled()
         self.darkModeSwitch.isOn = Settings.darkModeEnabled()

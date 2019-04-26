@@ -21,7 +21,7 @@
 		4B0D4C4D223B2CA50074F50B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0D4C4C223B2CA50074F50B /* TodayViewController.swift */; };
 		4B0D4C50223B2CA50074F50B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B0D4C4E223B2CA50074F50B /* MainInterface.storyboard */; };
 		4B0D4C54223B2CA50074F50B /* VeryAnnoyingTodoListWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4B0D4C48223B2CA50074F50B /* VeryAnnoyingTodoListWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		4B8FF91B226E3C3000B51C12 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8FF91A226E3C3000B51C12 /* NotificationSettingViewController.swift */; };
+		4B8FF91B226E3C3000B51C12 /* NotificationScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8FF91A226E3C3000B51C12 /* NotificationScheduleViewController.swift */; };
 		4B8FF91F226E41BB00B51C12 /* AddNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8FF91E226E41BB00B51C12 /* AddNotificationViewController.swift */; };
 		4B8FF921226EBE9000B51C12 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8FF920226EBE9000B51C12 /* ScheduleTableViewCell.swift */; };
 		4B8FF924226ED2A800B51C12 /* NotificationSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8FF923226ED2A800B51C12 /* NotificationSchedule.swift */; };
@@ -109,7 +109,7 @@
 		4B0D4C4C223B2CA50074F50B /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		4B0D4C4F223B2CA50074F50B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4B0D4C51223B2CA50074F50B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B8FF91A226E3C3000B51C12 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
+		4B8FF91A226E3C3000B51C12 /* NotificationScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleViewController.swift; sourceTree = "<group>"; };
 		4B8FF91E226E41BB00B51C12 /* AddNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotificationViewController.swift; sourceTree = "<group>"; };
 		4B8FF920226EBE9000B51C12 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		4B8FF923226ED2A800B51C12 /* NotificationSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedule.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 				4B0D4C3E223B13C30074F50B /* TodoListViewController.swift */,
 				4B0D4C40223B14080074F50B /* EditPageViewController.swift */,
 				4B0D4C42223B144D0074F50B /* SettingsViewController.swift */,
-				4B8FF91A226E3C3000B51C12 /* NotificationSettingViewController.swift */,
+				4B8FF91A226E3C3000B51C12 /* NotificationScheduleViewController.swift */,
 				4B8FF91E226E41BB00B51C12 /* AddNotificationViewController.swift */,
 				4B8FF920226EBE9000B51C12 /* ScheduleTableViewCell.swift */,
 				4BE47F7622722FDF0061DE71 /* AppTabBarController.swift */,
@@ -630,7 +630,7 @@
 				4BE1489F223C58D900A1E60A /* GUIHelper.swift in Sources */,
 				4BE148A2223C5EF900A1E60A /* NotificationCode.swift in Sources */,
 				4B0D4C10223ACD580074F50B /* AppDelegate.swift in Sources */,
-				4B8FF91B226E3C3000B51C12 /* NotificationSettingViewController.swift in Sources */,
+				4B8FF91B226E3C3000B51C12 /* NotificationScheduleViewController.swift in Sources */,
 				4B8FF926226EE2C200B51C12 /* NotificationController.swift in Sources */,
 				4B0D4C43223B144D0074F50B /* SettingsViewController.swift in Sources */,
 				4B8FF924226ED2A800B51C12 /* NotificationSchedule.swift in Sources */,

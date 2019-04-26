@@ -292,7 +292,7 @@
         <!--Notification Schedules-->
         <scene sceneID="bSS-0n-KRN">
             <objects>
-                <tableViewController storyboardIdentifier="NotificationSetting" id="f5f-vt-JbR" customClass="NotificationSettingViewController" customModule="VeryAnnoyingTodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NotificationSetting" id="f5f-vt-JbR" customClass="NotificationScheduleViewController" customModule="VeryAnnoyingTodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nTi-3e-tqn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

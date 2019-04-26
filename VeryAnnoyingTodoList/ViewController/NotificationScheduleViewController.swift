@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class NotificationSettingViewController: UITableViewController {
+class NotificationScheduleViewController: UITableViewController {
 
     var addNotificationViewController: AddNotificationViewController?
     var schedules = [NotificationSchedule]()
@@ -19,9 +19,12 @@ class NotificationSettingViewController: UITableViewController {
     private func reloadTableView() {
         schedules = Settings.notificationSchedules()
         schedules.sort { (schedule1, schedule2) -> Bool in
-            let str1 = DateHelper.hourMinuteString(schedule1.time)
-            let str2 = DateHelper.hourMinuteString(schedule2.time)
-            return str1 > str2
+            let hour1 = Calendar.current.component(.hour, from: schedule1.time)
+            let hour2 = Calendar.current.component(.hour, from: schedule2.time)
+            let minute1 = Calendar.current.component(.minute, from: schedule1.time)
+            let minute2 = Calendar.current.component(.minute, from: schedule2.time)
+
+            return hour1 < hour2 || ((hour1 == hour2) && (minute1 < minute2))
         }
         self.tableView.reloadData()
     }
@@ -103,7 +106,7 @@ class NotificationSettingViewController: UITableViewController {
     
 }
 
-extension NotificationSettingViewController: Themed {
+extension NotificationScheduleViewController: Themed {
     func applyTheme(_ theme: AppTheme) {
 
         self.tableView.backgroundColor = theme.backgroundColor
