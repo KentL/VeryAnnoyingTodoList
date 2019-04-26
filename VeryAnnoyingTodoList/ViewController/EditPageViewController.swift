@@ -69,14 +69,16 @@ class EditPageViewController: UIViewController {
         let keyboardToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         keyboardToolbar.barStyle = .default
 
-        keyboardToolbar.items = [UIBarButtonItem(barButtonSystemItem: .stop, target: nil, action: #selector(clearContent))
+        keyboardToolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: .stop, target: nil, action: #selector(hideKeyBoard)),
         ]
         keyboardToolbar.sizeToFit()
 
         contentView.inputAccessoryView = keyboardToolbar
     }
-    @objc private func clearContent() {
-        contentView.text = ""
+
+    @objc private func hideKeyBoard() {
+        contentView.endEditing(true)
     }
     @objc func keyboardNotification(notification: NSNotification) {
         //https://stackoverflow.com/questions/25693130/move-textfield-when-keyboard-appears-swift
