@@ -62,6 +62,8 @@ class EditPageViewController: UIViewController {
                                                name: UIResponder.keyboardWillChangeFrameNotification,
                                                object: nil)
         setUpTheming()
+        contentView.font = UIFont.preferredFont(forTextStyle: .body)
+        contentView.adjustsFontForContentSizeCategory = true
     }
 
 
